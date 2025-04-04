@@ -1,9 +1,11 @@
 <script lang="ts">
   import Button from "./Button.svelte";
+  import Display from "./Display.svelte";
   import Line from "./Line.svelte";
 </script>
 
 <div class="calculator">
+    <Display value={'123'} />
     <Line>
         <Button highlight triple text="AC" />
         <Button text="/" />
@@ -12,7 +14,7 @@
         <Button text="7" />
         <Button text="8" />
         <Button text="9" />
-        <Button operation text="X" />
+        <Button operation text="x" />
     </Line>
     <Line>
         <Button text="4" />
