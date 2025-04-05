@@ -7,6 +7,7 @@
   let calc = new CalculatorModel();
 
   const textNumber = (num: string) => calc = calc.textNumber(num);
+  const addDot = () => calc = calc.addDot();
 
 </script>
 
@@ -36,7 +37,7 @@
     </Line>
     <Line>
         <Button double text="0" onClick={textNumber} />
-        <Button operation text="," />
+        <Button operation text="," onClick={addDot} />
         <Button highlight text="=" />
     </Line>
 </div>
