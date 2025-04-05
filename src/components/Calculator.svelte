@@ -1,17 +1,17 @@
 <script lang="ts">
+  import CalculatorModel from "../model/CalculatorModel";
   import Button from "./Button.svelte";
   import Display from "./Display.svelte";
   import Line from "./Line.svelte";
 
-  let value = '0';
+  let calc = new CalculatorModel();
 
-  function textNumber(number: string) {
-    value += number;
-  }
+  const textNumber = (num: string) => calc = calc.textNumber(num);
+
 </script>
 
 <div class="calculator">
-    <Display value={value} />
+    <Display value={calc.value} />
     <Line>
         <Button highlight triple text="AC" />
         <Button text="/" />
@@ -35,7 +35,7 @@
         <Button operation text="+" />
     </Line>
     <Line>
-        <Button double text="0" />
+        <Button double text="0" onClick={textNumber} />
         <Button operation text="," />
         <Button highlight text="=" />
     </Line>
