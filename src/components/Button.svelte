@@ -4,9 +4,13 @@
     export let triple: boolean = false;
     export let operation: boolean = false;
     export let highlight: boolean = false;
+
+    export let onClick: (value:string) => void = () => {}
 </script>
 
-<button class="btn" class:triple class:double class:operation class:highlight>
+<button class="btn" 
+    on:click={() => onClick(text)}
+    class:triple class:double class:operation class:highlight>
     {text}
 </button>
 
