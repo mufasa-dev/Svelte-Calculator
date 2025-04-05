@@ -8,13 +8,14 @@
 
   const textNumber = (num: string) => calc = calc.textNumber(num);
   const addDot = () => calc = calc.addDot();
+  const clearScreen = () => calc = calc.clearScreen();
 
 </script>
 
 <div class="calculator">
     <Display value={calc.value} />
     <Line>
-        <Button highlight triple text="AC" />
+        <Button highlight triple text="AC" onClick={clearScreen} />
         <Button text="/" />
     </Line>
     <Line>
