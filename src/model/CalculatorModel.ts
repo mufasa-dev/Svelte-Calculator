@@ -1,3 +1,4 @@
+const CLEAR_SCREEN = true;
 const NOT_CLEAR_SCREEN = false;
 
 export default class CalculatorModel {
@@ -37,5 +38,23 @@ export default class CalculatorModel {
 
     clearScreen() {
         return new CalculatorModel();
+    }
+
+    textOperation(nextOperation: string) {
+        return this.calculate(nextOperation);
+    }
+
+    calculate(nextOperation: string = null) {
+        const accumulator = !this.#operation
+            ? parseFloat(this.#value)
+            : eval(`${this.#accumulator} ${this.#operation} ${this.#value}`);
+        const value = !this.#operation ? this.#value : String(accumulator);
+
+        return new CalculatorModel(
+            value,
+            accumulator,
+            nextOperation,
+            nextOperation ? CLEAR_SCREEN : NOT_CLEAR_SCREEN
+        )
     }
 }
