@@ -1,25 +1,32 @@
 <script lang="ts">
     export let value: string = "";
+    export let operation: string = "";
 
     $: fontSize = value.length > 20 ? 'smallFont' : `s-${value.length}`
 </script>
 
 <div class={`display ${fontSize}`}>
+    <small>{operation}</small>
     <span>{value}</span>
 </div>
 
 <style>
     .display {
         display: flex;
+        flex-direction: column;
         flex: 1;
-        justify-content: flex-end;
-        align-items: center;
+        justify-content: center;
+        align-items: flex-end;
         padding: 0 10px;
         font-size: 1.7rem;
         background: aliceblue;
         overflow: hidden;
         margin: 2px 1px;
         border-radius: 5px;
+    }
+    .display small {
+        color: #999;
+        font-size: 1rem;
     }
 
     .s-10 { font-size: 1.5rem }

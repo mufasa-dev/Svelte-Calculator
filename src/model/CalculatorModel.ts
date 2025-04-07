@@ -18,6 +18,10 @@ export default class CalculatorModel {
         return this.#value?.replace('.', ',') || '0';
     }
 
+    get completeOperation() {
+        return `${this.#accumulator ?? ''} ${this.#operation ?? ''} ${this.#value ?? ''}`;
+    }
+
     textNumber(newValue: string) {
         return new CalculatorModel(
             (this.#clearDisplay || !this.#value) ? newValue : this.#value + newValue,
@@ -51,8 +55,8 @@ export default class CalculatorModel {
         const value = !this.#operation ? this.#value : String(accumulator);
 
         return new CalculatorModel(
-            value,
-            accumulator,
+            !this.#operation ?  null : value,
+            !this.#operation ? accumulator : null,
             nextOperation,
             nextOperation ? CLEAR_SCREEN : NOT_CLEAR_SCREEN
         )

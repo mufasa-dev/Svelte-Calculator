@@ -9,6 +9,7 @@
 <style>
 	:global(body) {
 		background-color: #333;
+		padding: 0;
 	}
 	:root {
 		--back: #555;

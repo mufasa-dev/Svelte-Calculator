@@ -16,7 +16,7 @@
 
 <div class="calculator">
     <h4 class="title">Calculator</h4>
-    <Display value={calc.value} />
+    <Display value={calc.value} operation={calc.completeOperation} />
     <Line>
         <Button highlight triple text="AC" onClick={clearScreen} />
         <Button operation text="/" onClick={textOperation} />
@@ -25,7 +25,7 @@
         <Button text="7" onClick={textNumber} />
         <Button text="8" onClick={textNumber} />
         <Button text="9" onClick={textNumber} />
-        <Button operation text="x" onClick={textOperation} />
+        <Button operation text="*" onClick={textOperation} />
     </Line>
     <Line>
         <Button text="4" onClick={textNumber} />
