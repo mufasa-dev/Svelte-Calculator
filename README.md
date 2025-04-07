@@ -7,6 +7,10 @@ A simple calculator application built using [Svelte](https://svelte.dev/). This 
 - Lightweight and fast, thanks to Svelte's reactivity.
 - Responsive design for different screen sizes.
 
+## 🧮 Demo
+
+[Click Here](https://mufasa-dev.github.io/Svelte-Calculator/)
+
 ## 🛠 Installation
 
 ### 1️⃣ Clone the Repository
