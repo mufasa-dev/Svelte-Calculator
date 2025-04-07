@@ -34,9 +34,9 @@
         <Button operation text="-" onClick={textOperation} />
     </Line>
     <Line>
-        <Button text="3" onClick={textNumber} />
-        <Button text="2" onClick={textNumber} />
         <Button text="1" onClick={textNumber} />
+        <Button text="2" onClick={textNumber} />
+        <Button text="3" onClick={textNumber} />
         <Button operation text="+" onClick={textOperation} />
     </Line>
     <Line>
