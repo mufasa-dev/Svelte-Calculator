@@ -15,10 +15,11 @@
 </script>
 
 <div class="calculator">
+    <h4 class="title">Calculator</h4>
     <Display value={calc.value} />
     <Line>
         <Button highlight triple text="AC" onClick={clearScreen} />
-        <Button text="/" onClick={textOperation} />
+        <Button operation text="/" onClick={textOperation} />
     </Line>
     <Line>
         <Button text="7" onClick={textNumber} />
@@ -48,11 +49,18 @@
 <style>
     .calculator {
         background-color: var(--back);
-        height: 220px;
-        width: 150px;
+        height: 300px;
+        width: 100%;
+        max-width: 350px;
         display: flex;
         flex-direction: column;
         padding: 10px;
         border-radius: 10px;
+    }
+    .title {
+        color: white;
+        margin: 0;
+        margin-bottom: 5px;
+        text-align: center;
     }
 </style>

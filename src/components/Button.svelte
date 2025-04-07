@@ -18,7 +18,8 @@
     .btn {
         flex-basis: 25%;
         margin: 0;
-        border: 1px solid var(--back);
+        border: 2px solid var(--back);
+        border-radius: 5px;
     }
 
     .double {
@@ -32,9 +33,16 @@
         background-color: orange;
         color: white;
     }
+    .operation:not(:disabled):active {
+        background-color: rgb(253, 173, 24);
+        color: white;
+    }
 
     .highlight {
         background: #b50000;
         color: white;
+    }
+    .highlight:not(:disabled):active {
+        background: #d10505;
     }
 </style>

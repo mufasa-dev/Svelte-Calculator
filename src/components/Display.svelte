@@ -14,13 +14,12 @@
         flex: 1;
         justify-content: flex-end;
         align-items: center;
-        padding: 0 5px;
+        padding: 0 10px;
         font-size: 1.7rem;
         background: aliceblue;
         overflow: hidden;
         margin: 2px 1px;
-        border-top-right-radius: 5px;
-        border-top-left-radius: 5px;
+        border-radius: 5px;
     }
 
     .s-10 { font-size: 1.5rem }

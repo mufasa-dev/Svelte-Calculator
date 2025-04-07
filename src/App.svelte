@@ -8,7 +8,7 @@
 
 <style>
 	:global(body) {
-		background-color: black;
+		background-color: #333;
 	}
 	:root {
 		--back: #555;
