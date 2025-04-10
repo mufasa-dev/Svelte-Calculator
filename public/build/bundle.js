@@ -519,11 +519,13 @@ var app = (function () {
         }
         get value() {
             var _a;
+            if (!__classPrivateFieldGet(this, _CalculatorModel_value, "f") && __classPrivateFieldGet(this, _CalculatorModel_accumulator, "f"))
+                return __classPrivateFieldGet(this, _CalculatorModel_accumulator, "f");
             return ((_a = __classPrivateFieldGet(this, _CalculatorModel_value, "f")) === null || _a === void 0 ? void 0 : _a.replace('.', ',')) || '0';
         }
         get completeOperation() {
-            var _a, _b, _c;
-            return `${(_a = __classPrivateFieldGet(this, _CalculatorModel_accumulator, "f")) !== null && _a !== void 0 ? _a : ''} ${(_b = __classPrivateFieldGet(this, _CalculatorModel_operation, "f")) !== null && _b !== void 0 ? _b : ''} ${(_c = __classPrivateFieldGet(this, _CalculatorModel_value, "f")) !== null && _c !== void 0 ? _c : ''}`;
+            var _a, _b;
+            return `${(_a = __classPrivateFieldGet(this, _CalculatorModel_accumulator, "f")) !== null && _a !== void 0 ? _a : ''} ${(_b = __classPrivateFieldGet(this, _CalculatorModel_operation, "f")) !== null && _b !== void 0 ? _b : ''} ${__classPrivateFieldGet(this, _CalculatorModel_value, "f") ? __classPrivateFieldGet(this, _CalculatorModel_value, "f").replace('.', ',') : ''}`;
         }
         textNumber(newValue) {
             return new CalculatorModel((__classPrivateFieldGet(this, _CalculatorModel_clearDisplay, "f") || !__classPrivateFieldGet(this, _CalculatorModel_value, "f")) ? newValue : __classPrivateFieldGet(this, _CalculatorModel_value, "f") + newValue, __classPrivateFieldGet(this, _CalculatorModel_accumulator, "f"), __classPrivateFieldGet(this, _CalculatorModel_operation, "f"), NOT_CLEAR_SCREEN);
@@ -539,11 +541,13 @@ var app = (function () {
             return this.calculate(nextOperation);
         }
         calculate(nextOperation = null) {
+            if (__classPrivateFieldGet(this, _CalculatorModel_value, "f") == null)
+                __classPrivateFieldSet(this, _CalculatorModel_value, "0", "f");
             const accumulator = !__classPrivateFieldGet(this, _CalculatorModel_operation, "f")
                 ? parseFloat(__classPrivateFieldGet(this, _CalculatorModel_value, "f"))
                 : eval(`${__classPrivateFieldGet(this, _CalculatorModel_accumulator, "f")} ${__classPrivateFieldGet(this, _CalculatorModel_operation, "f")} ${__classPrivateFieldGet(this, _CalculatorModel_value, "f")}`);
             const value = !__classPrivateFieldGet(this, _CalculatorModel_operation, "f") ? __classPrivateFieldGet(this, _CalculatorModel_value, "f") : String(accumulator);
-            return new CalculatorModel(!__classPrivateFieldGet(this, _CalculatorModel_operation, "f") ? null : value, !__classPrivateFieldGet(this, _CalculatorModel_operation, "f") ? accumulator : null, nextOperation, nextOperation ? CLEAR_SCREEN : NOT_CLEAR_SCREEN);
+            return new CalculatorModel(!__classPrivateFieldGet(this, _CalculatorModel_operation, "f") ? null : nextOperation ? null : value, !__classPrivateFieldGet(this, _CalculatorModel_operation, "f") ? accumulator : nextOperation ? value : null, nextOperation, nextOperation ? CLEAR_SCREEN : NOT_CLEAR_SCREEN);
         }
     }
     _CalculatorModel_value = new WeakMap(), _CalculatorModel_accumulator = new WeakMap(), _CalculatorModel_clearDisplay = new WeakMap(), _CalculatorModel_operation = new WeakMap();
@@ -562,7 +566,7 @@ var app = (function () {
     		c: function create() {
     			button = element("button");
     			t = text(/*text*/ ctx[0]);
-    			attr_dev(button, "class", "btn svelte-2pwtkx");
+    			attr_dev(button, "class", "btn svelte-c6lvkl");
     			toggle_class(button, "triple", /*triple*/ ctx[2]);
     			toggle_class(button, "double", /*double*/ ctx[1]);
     			toggle_class(button, "operation", /*operation*/ ctx[3]);
@@ -766,10 +770,10 @@ var app = (function () {
     			t1 = space();
     			span = element("span");
     			t2 = text(/*value*/ ctx[0]);
-    			attr_dev(small, "class", "svelte-7mi5i");
+    			attr_dev(small, "class", "svelte-2xveui");
     			add_location(small, file$3, 6, 4, 194);
     			add_location(span, file$3, 7, 4, 226);
-    			attr_dev(div, "class", div_class_value = "" + (null_to_empty(`display ${/*fontSize*/ ctx[2]}`) + " svelte-7mi5i"));
+    			attr_dev(div, "class", div_class_value = "" + (null_to_empty(`display ${/*fontSize*/ ctx[2]}`) + " svelte-2xveui"));
     			add_location(div, file$3, 5, 0, 153);
     		},
     		l: function claim(nodes) {
@@ -787,7 +791,7 @@ var app = (function () {
     			if (dirty & /*operation*/ 2) set_data_dev(t0, /*operation*/ ctx[1]);
     			if (dirty & /*value*/ 1) set_data_dev(t2, /*value*/ ctx[0]);
 
-    			if (dirty & /*fontSize*/ 4 && div_class_value !== (div_class_value = "" + (null_to_empty(`display ${/*fontSize*/ ctx[2]}`) + " svelte-7mi5i"))) {
+    			if (dirty & /*fontSize*/ 4 && div_class_value !== (div_class_value = "" + (null_to_empty(`display ${/*fontSize*/ ctx[2]}`) + " svelte-2xveui"))) {
     				attr_dev(div, "class", div_class_value);
     			}
     		},
@@ -891,7 +895,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			if (default_slot) default_slot.c();
-    			attr_dev(div, "class", "line svelte-kst9vd");
+    			attr_dev(div, "class", "line svelte-1yv9mol");
     			add_location(div, file$2, 0, 0, 0);
     		},
     		l: function claim(nodes) {
@@ -1523,9 +1527,9 @@ var app = (function () {
     			create_component(line3.$$.fragment);
     			t6 = space();
     			create_component(line4.$$.fragment);
-    			attr_dev(h4, "class", "title svelte-1otna3i");
+    			attr_dev(h4, "class", "title svelte-1s7eh8a");
     			add_location(h4, file$1, 13, 4, 536);
-    			attr_dev(div, "class", "calculator svelte-1otna3i");
+    			attr_dev(div, "class", "calculator svelte-1s7eh8a");
     			add_location(div, file$1, 12, 0, 506);
     		},
     		l: function claim(nodes) {
@@ -1696,7 +1700,7 @@ var app = (function () {
     		c: function create() {
     			main = element("main");
     			create_component(calculator.$$.fragment);
-    			attr_dev(main, "class", "svelte-1mw7bwm");
+    			attr_dev(main, "class", "svelte-16gp0ki");
     			add_location(main, file, 3, 0, 89);
     		},
     		l: function claim(nodes) {

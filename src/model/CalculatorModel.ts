@@ -15,11 +15,12 @@ export default class CalculatorModel {
     }
 
     get value() {
+        if (!this.#value && this.#accumulator) return this.#accumulator;
         return this.#value?.replace('.', ',') || '0';
     }
 
     get completeOperation() {
-        return `${this.#accumulator ?? ''} ${this.#operation ?? ''} ${this.#value ?? ''}`;
+        return `${this.#accumulator ?? ''} ${this.#operation ?? ''} ${this.#value ? this.#value.replace('.', ',') : ''}`;
     }
 
     textNumber(newValue: string) {
@@ -49,16 +50,17 @@ export default class CalculatorModel {
     }
 
     calculate(nextOperation: string = null) {
+        if (this.#value == null) this.#value = "0";
         const accumulator = !this.#operation
             ? parseFloat(this.#value)
             : eval(`${this.#accumulator} ${this.#operation} ${this.#value}`);
         const value = !this.#operation ? this.#value : String(accumulator);
-
+        
         return new CalculatorModel(
-            !this.#operation ?  null : value,
-            !this.#operation ? accumulator : null,
+            !this.#operation ?  null : nextOperation ? null : value,
+            !this.#operation ? accumulator : nextOperation ? value : null,
             nextOperation,
             nextOperation ? CLEAR_SCREEN : NOT_CLEAR_SCREEN
-        )
+        );
     }
 }
